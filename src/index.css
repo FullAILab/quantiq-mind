@@ -8,58 +8,66 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Full AI Lab Color System - Professional Fintech Design */
-    --background: 0 0% 100%;
-    --foreground: 217 33% 17%;
+    /* Full AI Lab Color System - Black/Peach/Gold Premium Design */
+    /* Light Mode - Beige background with black text */
+    --background: 30 33% 97%;  /* #faf8f5 - Beige clair */
+    --foreground: 0 0% 4%;  /* #0a0a0a - Noir profond */
     
-    /* Deep Blue Primary - Professional & Trustworthy */
-    --primary: 217 91% 16%;  /* #0A1F44 - Deep navy blue */
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 217 76% 48%;  /* #1E40AF - Tech blue */
+    /* Black Primary - Premium & Sophisticated */
+    --primary: 0 0% 4%;  /* #0a0a0a - Noir profond */
+    --primary-foreground: 30 33% 97%;  /* #faf8f5 - Beige clair */
     
-    /* Turquoise Accent - Innovation & CTA */
-    --accent: 189 94% 43%;  /* #06B6D4 - Turquoise */
-    --accent-foreground: 0 0% 100%;
+    /* Peach Accent - Warmth & Innovation */
+    --accent: 23 96% 80%;  /* #fdc89f - Pêche/Corail */
+    --accent-foreground: 0 0% 4%;  /* Noir sur pêche */
     
-    /* ESG Green - Sustainability */
-    --esg: 158 64% 52%;  /* #10B981 - Green */
-    --esg-foreground: 0 0% 100%;
+    /* Gold Secondary - Premium & Excellence */
+    --secondary: 45 69% 52%;  /* #d4af37 - Or */
+    --secondary-foreground: 0 0% 4%;  /* Noir sur or */
     
-    /* Secondary & Muted */
-    --secondary: 215 25% 27%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 220 13% 91%;
-    --muted-foreground: 215 16% 47%;
+    /* Terracotta Tertiary - Energy & Confidence */
+    --esg: 7 40% 60%;  /* #c17a6f - Terracotta */
+    --esg-foreground: 30 33% 97%;
     
-    /* Card & Surface */
+    /* Muted & Subtle */
+    --muted: 30 20% 90%;
+    --muted-foreground: 0 0% 35%;
+    
+    /* Card & Surface - Alternating sections */
     --card: 0 0% 100%;
-    --card-foreground: 217 33% 17%;
+    --card-foreground: 0 0% 4%;
+    
+    --card-dark: 0 0% 10%;  /* #1a1a1a - Pour sections sombres */
+    --card-dark-foreground: 30 33% 97%;
     
     /* Popover */
     --popover: 0 0% 100%;
-    --popover-foreground: 217 33% 17%;
+    --popover-foreground: 0 0% 4%;
     
     /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
     /* Border & Input */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 189 94% 43%;
+    --border: 30 15% 85%;
+    --input: 30 15% 90%;
+    --ring: 23 96% 80%;  /* Pêche */
     
     --radius: 0.75rem;
     
-    /* Gradients for hero sections */
-    --gradient-hero: linear-gradient(135deg, hsl(217, 91%, 16%) 0%, hsl(0, 0%, 0%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(220, 13%, 97%) 100%);
+    /* Gradients Premium */
+    --gradient-hero: linear-gradient(135deg, hsl(0, 0%, 4%) 0%, hsl(0, 0%, 0%) 100%);
+    --gradient-peach-gold: linear-gradient(135deg, hsl(23, 96%, 80%) 0%, hsl(45, 69%, 52%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(23, 96%, 80%) 0%, hsl(13, 53%, 63%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(30, 33%, 97%) 100%);
     
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(217 91% 16% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(217 91% 16% / 0.1), 0 2px 4px -1px hsl(217 91% 16% / 0.06);
-    --shadow-lg: 0 10px 15px -3px hsl(217 91% 16% / 0.1), 0 4px 6px -2px hsl(217 91% 16% / 0.05);
-    --shadow-xl: 0 20px 25px -5px hsl(217 91% 16% / 0.1), 0 10px 10px -5px hsl(217 91% 16% / 0.04);
-    --shadow-glow: 0 0 20px hsl(189 94% 43% / 0.3);
+    /* Shadows with warm tones */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 4% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 4% / 0.1), 0 2px 4px -1px hsl(0 0% 4% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 4% / 0.1), 0 4px 6px -2px hsl(0 0% 4% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 4% / 0.1), 0 10px 10px -5px hsl(0 0% 4% / 0.04);
+    --shadow-glow: 0 0 30px hsl(23 96% 80% / 0.4);  /* Peach glow */
+    --shadow-gold: 0 0 30px hsl(45 69% 52% / 0.3);  /* Gold glow */
     
     /* Animations */
     --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -67,39 +75,45 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 217 33% 10%;
-    --foreground: 0 0% 95%;
+    /* Dark Mode - Black background with beige/peach text */
+    --background: 0 0% 0%;  /* #000000 - Noir pur */
+    --foreground: 30 33% 97%;  /* #faf8f5 - Beige clair */
     
-    --primary: 217 76% 48%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 4%;  /* Noir profond */
+    --primary-foreground: 30 33% 97%;
     
-    --accent: 189 94% 43%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 23 96% 80%;  /* Pêche */
+    --accent-foreground: 0 0% 4%;
     
-    --esg: 158 64% 52%;
-    --esg-foreground: 0 0% 100%;
+    --secondary: 45 69% 52%;  /* Or */
+    --secondary-foreground: 0 0% 4%;
     
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 0 0% 100%;
+    --esg: 7 40% 60%;  /* Terracotta */
+    --esg-foreground: 30 33% 97%;
     
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 30 20% 70%;
     
-    --card: 217 33% 13%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 10%;  /* #1a1a1a */
+    --card-foreground: 30 33% 97%;
     
-    --popover: 217 33% 13%;
-    --popover-foreground: 0 0% 95%;
+    --card-dark: 0 0% 4%;
+    --card-dark-foreground: 30 33% 97%;
     
-    --destructive: 0 63% 31%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 30 33% 97%;
+    
+    --destructive: 0 63% 50%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 217 33% 20%;
-    --input: 217 33% 20%;
-    --ring: 189 94% 43%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 23 96% 80%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(217, 33%, 10%) 0%, hsl(0, 0%, 0%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(217, 33%, 13%) 0%, hsl(217, 33%, 10%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 0%) 100%);
+    --gradient-peach-gold: linear-gradient(135deg, hsl(23, 96%, 80%) 0%, hsl(45, 69%, 52%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(23, 96%, 80%) 0%, hsl(13, 53%, 63%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 4%) 100%);
   }
 }
 
