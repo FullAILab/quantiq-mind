@@ -62,12 +62,50 @@ This project is built with:
 
 ## How can I deploy this project?
 
+### Automated Deployment with GitHub Actions
+
+This project is configured for automatic deployment to GitHub Pages. The deployment happens automatically when you push to the `main` branch.
+
+#### Setup Instructions:
+
+1. **Enable GitHub Pages in Repository Settings:**
+   - Go to your repository on GitHub
+   - Navigate to Settings > Pages
+   - Under "Build and deployment", select:
+     - Source: **GitHub Actions**
+   
+2. **Configure DNS (if using custom domain):**
+   - The CNAME file is already configured for `www.fullailab.com`
+   - Add the following DNS records at your domain provider:
+     ```
+     Type: CNAME
+     Name: www
+     Value: fullailab.github.io
+     ```
+
+3. **Deploy:**
+   - Push changes to the `main` branch
+   - GitHub Actions will automatically build and deploy
+   - Monitor the deployment progress in the "Actions" tab
+   - Your site will be live at: https://www.fullailab.com
+
+#### Manual Deployment:
+
+You can also trigger a manual deployment:
+- Go to the "Actions" tab in GitHub
+- Select "Deploy to GitHub Pages" workflow
+- Click "Run workflow" button
+
+### Build Locally
+
+To build the project locally:
+
+```sh
+npm run build
+```
+
+The built files will be in the `dist/` directory.
+
+### Alternative: Deploy with Lovable
+
 Simply open [Lovable](https://lovable.dev/projects/32fb3342-6c8f-4c98-96c3-3e3e768e35fc) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
