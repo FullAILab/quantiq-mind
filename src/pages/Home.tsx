@@ -1,186 +1,162 @@
-import { ArrowRight, TrendingUp, Shield, Leaf, Zap, Target, Users, Award, BarChart3, Lock, Cpu, LineChart } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { TrendingUp, Shield, Zap, Users, Leaf, ChevronDown, Mail, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import heroImage from '@/assets/hero-bg.jpg';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function Home() {
-  const pillars = [
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const edges = [
     {
       icon: TrendingUp,
-      title: 'Performance',
-      description: 'Algorithmes propriétaires avec +30% de précision vs benchmarks traditionnels'
+      title: 'PRÉCISION',
+      items: [
+        'Lecture des micro-structures et régimes de marché',
+        'Meilleures entrées/sorties grâce à l\'analyse fine',
+        'Latence décision/exécution < 50ms'
+      ]
+    },
+    {
+      icon: Zap,
+      title: 'ADAPTATION',
+      items: [
+        'Apprentissage continu en temps réel',
+        'Détection automatique des régimes : tendance, range, stress, low-vol',
+        'Recalibrage permanent du moteur'
+      ]
     },
     {
       icon: Shield,
-      title: 'Transparence',
-      description: 'IA explicable à 100% - comprenez chaque décision d\'investissement'
-    },
-    {
-      icon: Leaf,
-      title: 'Impact',
-      description: 'Scoring ESG robuste et traçable pour une finance réellement durable'
+      title: 'STABILITÉ',
+      items: [
+        'Contrôle strict du risque (drawdown, volatilité, exposition)',
+        'Combinaison de vues complémentaires',
+        'Boucle de feedback continue'
+      ]
     }
   ];
 
-  const challenges = [
+  const metrics = [
+    { label: 'Sharpe Ratio', value: '3.0' },
+    { label: 'Win Rate', value: '70%' },
+    { label: 'Max Drawdown', value: '< 3.5%' },
+    { label: 'Rendement annualisé', value: '+28%' },
+    { label: 'Latence', value: '< 50ms' }
+  ];
+
+  const roadmap = [
+    { year: '2025', milestone: 'MVP finalisé, backtests multi-régimes' },
+    { year: '2026', milestone: 'Pilotes institutionnels, preuve de performance' },
+    { year: '2027-2028', milestone: 'Lancement du fonds, Série A, scale' }
+  ];
+
+  const team = [
     {
-      title: 'Pression ESG Croissante',
-      description: 'Réglementation AMF 2024 et attentes clients pour investissements durables',
-      icon: Leaf
+      name: 'Théo Lecoeur',
+      role: 'Fondateur, Quant & Tech Lead',
+      description: 'Architecture IA, stratégie quantitative'
     },
     {
-      title: 'Coûts Technologiques',
-      description: 'Infrastructure quantitative traditionnellement réservée aux grands fonds',
-      icon: BarChart3
-    },
-    {
-      title: 'Guerre des Talents',
-      description: 'Difficulté à recruter des experts en IA et finance quantitative',
-      icon: Users
-    },
-    {
-      title: 'Conformité Réglementaire',
-      description: 'MiFID II et exigences de transparence algorithmique',
-      icon: Lock
-    },
-    {
-      title: 'Concentration du Marché',
-      description: 'Domination des géants tech sur les solutions d\'investissement automatisé',
-      icon: Target
+      name: 'Sarah Lecoeur',
+      role: 'Cofondatrice, Ops & People',
+      description: 'Organisation, partenariats institutionnels'
     }
   ];
 
-  const solutions = [
+  const faqs = [
     {
-      title: 'Optimisation des Performances',
-      description: 'Algorithmes d\'IA avancés pour surperformer les benchmarks',
-      icon: TrendingUp
+      question: 'Qu\'est-ce qui différencie Full AI Lab des fonds quantitatifs traditionnels ?',
+      answer: 'Notre moteur combine IA discriminative et décisionnelle avec apprentissage adaptatif en temps réel. Contrairement aux modèles statiques, nous détectons automatiquement les régimes de marché et recalibrons en continu pour capter les non-linéarités.'
     },
     {
-      title: 'Réduction des Coûts',
-      description: 'API accessible dès 1 500€/mois vs infrastructure propriétaire à millions',
-      icon: Zap
+      question: 'Comment l\'adaptive learning maintient-il la performance ?',
+      answer: 'Le système apprend continuellement des nouvelles données de marché, détecte les changements de régime (tendance, range, stress) et ajuste automatiquement ses paramètres. Cette boucle de feedback permanent évite la dégradation des performances.'
     },
     {
-      title: 'Conformité ESG',
-      description: 'Scoring propriétaire anti-greenwashing et reporting automatisé',
-      icon: Leaf
+      question: 'Quel est le profil d\'investisseurs ciblé ?',
+      answer: 'Nous ciblons les fonds 50-500M AUM, prop firms et family offices en Europe, avec extension Amérique du Nord. Focus sur des partenaires institutionnels recherchant performance pure et approche quantitative innovante.'
     },
     {
-      title: 'Expertise IA',
-      description: 'Accès à notre laboratoire d\'innovation sans recruter des data scientists',
-      icon: Cpu
-    },
-    {
-      title: 'Agilité',
-      description: 'Déploiement en semaines, pas en années',
-      icon: Award
-    }
-  ];
-
-  const stats = [
-    { value: '+20%', label: 'Croissance du trading quantitatif (CAGR)', source: 'Deloitte 2024' },
-    { value: '2 500 Md$', label: 'Marché robo-advisors en 2030', source: 'Statista' },
-    { value: '+15%', label: 'Croissance de la finance durable', source: 'PwC' },
-    { value: '+30%', label: 'Précision vs benchmarks traditionnels', source: 'Full AI Lab' }
-  ];
-
-  const advantages = [
-    {
-      title: 'Technologie Propriétaire',
-      description: 'Algorithmes d\'IA causale développés en interne avec backtests sur 10 ans',
-      icon: Cpu
-    },
-    {
-      title: 'IA Explicable',
-      description: 'Transparence totale sur chaque décision - conformité MiFID II garantie',
-      icon: Shield
-    },
-    {
-      title: 'Scoring ESG Robuste',
-      description: 'Méthodologie anti-greenwashing avec traçabilité complète',
-      icon: Leaf
-    },
-    {
-      title: 'Accessibilité Unique',
-      description: 'Solution B2B abordable pour fonds intermédiaires (<500M€)',
-      icon: Award
+      question: 'Quand le fonds sera-t-il accessible ?',
+      answer: 'MVP finalisé en 2025 avec pilotes institutionnels en 2026. Lancement commercial du fonds prévu 2027-2028 après validation de la performance en conditions réelles.'
     }
   ];
 
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-hero">
-        <div className="absolute inset-0 opacity-20">
-          <img src={heroImage} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary" />
-        
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge className="mb-6 bg-accent/20 text-accent-foreground border-accent/50 animate-pulse-glow">
-            Precision in Every Decision
-          </Badge>
-          
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 animate-fade-in">
-            L'Intelligence Artificielle qui<br />
-            <span className="bg-gradient-to-r from-accent to-esg bg-clip-text text-transparent">
-              Révolutionne l'Investissement
-            </span>
+      <section className="min-h-screen flex items-center justify-center bg-background pt-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+            Fonds quantitatif autonome<br />nouvelle génération
           </h1>
           
-          <p className="text-xl sm:text-2xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto animate-slide-up">
-            Technologie propriétaire combinant IA et algorithmes avancés pour des décisions d'investissement automatisées, transparentes et durables.
+          <p className="text-xl sm:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+            Les marchés évoluent plus vite que l'humain.<br />
+            Full AI Lab anticipe plutôt que réagit.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow text-lg px-8 py-6">
-              <Link to="/contact">
-                Demander une démo <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <Button 
+              onClick={() => scrollToSection('approche')}
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8"
+            >
+              Découvrir notre approche
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-6">
-              <Link to="/produit">
-                Découvrir la solution
-              </Link>
+            <Button 
+              onClick={() => scrollToSection('performance')}
+              size="lg" 
+              variant="ghost"
+              className="text-lg"
+            >
+              Voir les performances
             </Button>
           </div>
 
-          {/* Stats Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto">
-            {stats.slice(0, 4).map((stat, index) => (
-              <div key={index} className="text-center animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="text-3xl font-bold text-accent mb-1">{stat.value}</div>
-                <div className="text-sm text-primary-foreground/70">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          <button 
+            onClick={() => scrollToSection('approche')}
+            className="animate-bounce text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Scroll to next section"
+          >
+            <ChevronDown className="h-8 w-8" />
+          </button>
         </div>
       </section>
 
-      {/* Three Pillars */}
-      <section className="py-20 bg-background">
+      {/* Vision - L'edge quantitatif */}
+      <section id="approche" className="py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Nos Trois Piliers</h2>
-            <p className="text-xl text-muted-foreground">Performance • Transparence • Impact</p>
-          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16">L'edge quantitatif</h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {pillars.map((pillar, index) => {
-              const Icon = pillar.icon;
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {edges.map((edge, index) => {
+              const Icon = edge.icon;
               return (
                 <Card key={index} className="hover-lift border-2">
                   <CardHeader>
-                    <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
-                      <Icon className="h-6 w-6 text-primary-foreground" />
-                    </div>
-                    <CardTitle>{pillar.title}</CardTitle>
+                    <Icon className="h-10 w-10 text-accent mb-4" />
+                    <CardTitle className="text-2xl">{edge.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-base">{pillar.description}</CardDescription>
+                    <ul className="space-y-3">
+                      {edge.items.map((item, i) => (
+                        <li key={i} className="text-muted-foreground flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </CardContent>
                 </Card>
               );
@@ -189,152 +165,159 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Challenges Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Problématiques du Marché</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Les 5 Défis des Fonds Intermédiaires
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Les fonds d'investissement de taille moyenne font face à des défis uniques dans un marché en mutation rapide
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {challenges.map((challenge, index) => {
-              const Icon = challenge.icon;
-              return (
-                <Card key={index} className="hover-lift">
-                  <CardHeader>
-                    <Icon className="h-8 w-8 text-accent mb-2" />
-                    <CardTitle className="text-lg">{challenge.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>{challenge.description}</CardDescription>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+      {/* Architecture */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">Une hypercar financière</h2>
+          <p className="text-lg text-muted-foreground text-center leading-relaxed">
+            Notre moteur propriétaire combine IA discriminative et décisionnelle pour capter les non-linéarités du marché. 
+            Adaptive learning en continu. Détection automatique des régimes. 
+            Extraction de signaux fins au-delà des indicateurs classiques.
+          </p>
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-esg/10 text-esg border-esg/20">Notre Solution</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Full AI Lab : Votre Partenaire Technologique
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Une solution complète pour démocratiser l'accès à la finance quantitative
-            </p>
-          </div>
+      {/* Performances */}
+      <section id="performance" className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12">Performances simulées</h2>
+          
+          <Card className="border-2">
+            <CardContent className="pt-8">
+              <div className="space-y-4">
+                {metrics.map((metric, index) => (
+                  <div key={index} className="flex justify-between items-center py-3 border-b last:border-b-0">
+                    <span className="text-lg text-muted-foreground">{metric.label}</span>
+                    <span className="text-2xl font-bold text-accent">{metric.value}</span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {solutions.map((solution, index) => {
-              const Icon = solution.icon;
-              return (
-                <Card key={index} className="hover-lift border-l-4 border-l-accent">
-                  <CardHeader>
-                    <Icon className="h-8 w-8 text-accent mb-2" />
-                    <CardTitle className="text-lg">{solution.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>{solution.description}</CardDescription>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+          <p className="text-sm text-muted-foreground text-center mt-6">
+            Résultats de backtests multi-régimes sur données historiques
+          </p>
         </div>
       </section>
 
-      {/* Market Stats */}
-      <section className="py-20 bg-gradient-hero text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Chiffres Clés du Marché</h2>
-            <p className="text-xl text-primary-foreground/80">
-              Un secteur en croissance explosive
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <Card key={index} className="bg-primary-foreground/10 border-primary-foreground/20 hover-lift">
+      {/* Roadmap */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16">Roadmap</h2>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {roadmap.map((item, index) => (
+              <Card key={index} className="hover-lift">
                 <CardHeader>
-                  <CardTitle className="text-4xl font-bold text-accent mb-2">{stat.value}</CardTitle>
-                  <CardDescription className="text-primary-foreground/80 text-base">{stat.label}</CardDescription>
+                  <CardTitle className="text-3xl text-accent mb-2">{item.year}</CardTitle>
+                  <CardDescription className="text-base">{item.milestone}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-primary-foreground/60">{stat.source}</p>
-                </CardContent>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Competitive Advantages */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">Avantages Concurrentiels</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Pourquoi Choisir Full AI Lab ?
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {advantages.map((advantage, index) => {
-              const Icon = advantage.icon;
-              return (
-                <Card key={index} className="hover-lift">
-                  <CardHeader>
-                    <div className="flex items-start space-x-4">
-                      <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-accent to-esg flex items-center justify-center shrink-0">
-                        <Icon className="h-6 w-6 text-accent-foreground" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-xl mb-2">{advantage.title}</CardTitle>
-                        <CardDescription className="text-base">{advantage.description}</CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-br from-primary via-primary-light to-accent text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Prêt à Révolutionner Votre Stratégie d'Investissement ?
-          </h2>
-          <p className="text-xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
-            Rejoignez le programme pilote et bénéficiez d'un accompagnement personnalisé
+      {/* Positionnement */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <p className="text-xl text-center text-muted-foreground leading-relaxed">
+            Fonds propriétaire orienté performance pure. Cible : fonds 50–500M AUM, prop firms, family offices. 
+            Focus Europe avec extension Amérique du Nord.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow text-lg px-8 py-6">
-              <Link to="/contact">
-                Participer au programme pilote <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-6">
-              <Link to="/dashboard">
-                Tester le dashboard
-              </Link>
-            </Button>
+        </div>
+      </section>
+
+      {/* Équipe */}
+      <section id="equipe" className="py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16">Équipe</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {team.map((member, index) => (
+              <Card key={index} className="hover-lift">
+                <CardHeader>
+                  <CardTitle className="text-2xl mb-2">{member.name}</CardTitle>
+                  <p className="text-accent font-semibold mb-2">{member.role}</p>
+                  <CardDescription className="text-base">{member.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12">Questions fréquentes</h2>
+          
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg px-6 bg-background">
+                <AccordionTrigger className="text-left text-lg font-semibold hover:no-underline">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pt-2">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section id="contact" className="py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-8">
+            Prêt à découvrir le futur du trading quantitatif ?
+          </h2>
+          <Button 
+            size="lg" 
+            className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8"
+            onClick={() => window.location.href = 'mailto:contact@fullailab.com'}
+          >
+            Nous contacter
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-muted/30 py-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+            <div className="text-center md:text-left">
+              <p className="font-bold text-xl mb-2">Full AI Lab</p>
+              <p className="text-sm text-muted-foreground">Fonds quantitatif autonome</p>
+            </div>
+            
+            <div className="flex flex-col items-center space-y-3">
+              <a 
+                href="mailto:contact@fullailab.com" 
+                className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Mail className="h-5 w-5" />
+                <span>contact@fullailab.com</span>
+              </a>
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+          
+          <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
+            © 2025 Full AI Lab. Tous droits réservés.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

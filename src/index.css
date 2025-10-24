@@ -8,112 +8,38 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Full AI Lab Color System - Black/Peach/Gold Premium Design */
-    /* Light Mode - Beige background with black text */
-    --background: 30 33% 97%;  /* #faf8f5 - Beige clair */
-    --foreground: 0 0% 4%;  /* #0a0a0a - Noir profond */
-    
-    /* Black Primary - Premium & Sophisticated */
-    --primary: 0 0% 4%;  /* #0a0a0a - Noir profond */
-    --primary-foreground: 30 33% 97%;  /* #faf8f5 - Beige clair */
-    
-    /* Peach Accent - Warmth & Innovation */
-    --accent: 23 96% 80%;  /* #fdc89f - Pêche/Corail */
-    --accent-foreground: 0 0% 4%;  /* Noir sur pêche */
-    
-    /* Gold Secondary - Premium & Excellence */
-    --secondary: 45 69% 52%;  /* #d4af37 - Or */
-    --secondary-foreground: 0 0% 4%;  /* Noir sur or */
-    
-    /* Terracotta Tertiary - Energy & Confidence */
-    --esg: 7 40% 60%;  /* #c17a6f - Terracotta */
-    --esg-foreground: 30 33% 97%;
-    
-    /* Muted & Subtle */
-    --muted: 30 20% 90%;
-    --muted-foreground: 0 0% 35%;
-    
-    /* Card & Surface - Alternating sections */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 4%;
-    
-    --card-dark: 0 0% 10%;  /* #1a1a1a - Pour sections sombres */
-    --card-dark-foreground: 30 33% 97%;
-    
-    /* Popover */
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 4%;
-    
-    /* Destructive */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    
-    /* Border & Input */
-    --border: 30 15% 85%;
-    --input: 30 15% 90%;
-    --ring: 23 96% 80%;  /* Pêche */
-    
-    --radius: 0.75rem;
-    
-    /* Gradients Premium */
-    --gradient-hero: linear-gradient(135deg, hsl(0, 0%, 4%) 0%, hsl(0, 0%, 0%) 100%);
-    --gradient-peach-gold: linear-gradient(135deg, hsl(23, 96%, 80%) 0%, hsl(45, 69%, 52%) 100%);
-    --gradient-warm: linear-gradient(180deg, hsl(23, 96%, 80%) 0%, hsl(13, 53%, 63%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(30, 33%, 97%) 100%);
-    
-    /* Shadows with warm tones */
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 4% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 4% / 0.1), 0 2px 4px -1px hsl(0 0% 4% / 0.06);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 4% / 0.1), 0 4px 6px -2px hsl(0 0% 4% / 0.05);
-    --shadow-xl: 0 20px 25px -5px hsl(0 0% 4% / 0.1), 0 10px 10px -5px hsl(0 0% 4% / 0.04);
-    --shadow-glow: 0 0 30px hsl(23 96% 80% / 0.4);  /* Peach glow */
-    --shadow-gold: 0 0 30px hsl(45 69% 52% / 0.3);  /* Gold glow */
-    
-    /* Animations */
-    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+    /* Full AI Lab - Minimal Design System */
+    /* White/Light Gray with Blue Electric Accents */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
 
-  .dark {
-    /* Dark Mode - Black background with beige/peach text */
-    --background: 0 0% 0%;  /* #000000 - Noir pur */
-    --foreground: 30 33% 97%;  /* #faf8f5 - Beige clair */
-    
-    --primary: 0 0% 4%;  /* Noir profond */
-    --primary-foreground: 30 33% 97%;
-    
-    --accent: 23 96% 80%;  /* Pêche */
-    --accent-foreground: 0 0% 4%;
-    
-    --secondary: 45 69% 52%;  /* Or */
-    --secondary-foreground: 0 0% 4%;
-    
-    --esg: 7 40% 60%;  /* Terracotta */
-    --esg-foreground: 30 33% 97%;
-    
-    --muted: 0 0% 10%;
-    --muted-foreground: 30 20% 70%;
-    
-    --card: 0 0% 10%;  /* #1a1a1a */
-    --card-foreground: 30 33% 97%;
-    
-    --card-dark: 0 0% 4%;
-    --card-dark-foreground: 30 33% 97%;
-    
-    --popover: 0 0% 10%;
-    --popover-foreground: 30 33% 97%;
-    
-    --destructive: 0 63% 50%;
-    --destructive-foreground: 0 0% 100%;
-    
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 23 96% 80%;
-    
-    --gradient-hero: linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 0%) 100%);
-    --gradient-peach-gold: linear-gradient(135deg, hsl(23, 96%, 80%) 0%, hsl(45, 69%, 52%) 100%);
-    --gradient-warm: linear-gradient(180deg, hsl(23, 96%, 80%) 0%, hsl(13, 53%, 63%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 4%) 100%);
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 0 0% 5%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 5%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    /* Blue Electric Accent */
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.5rem;
   }
 }
 
@@ -134,75 +60,13 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Gradient backgrounds */
-  .gradient-hero {
-    background: var(--gradient-hero);
-  }
-  
-  .gradient-card {
-    background: var(--gradient-card);
-  }
-  
-  /* Custom shadows */
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
-  }
-  
-  /* Animations */
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out;
-  }
-  
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out;
-  }
-  
-  .animate-scale-in {
-    animation: scaleIn 0.4s ease-out;
-  }
-  
-  /* Hover effects */
   .hover-lift {
-    transition: var(--transition-base);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  
+
   .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
-  }
-  
-  .hover-glow:hover {
-    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
